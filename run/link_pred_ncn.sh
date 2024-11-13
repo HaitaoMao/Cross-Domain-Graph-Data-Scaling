@@ -196,6 +196,7 @@ echo seed=${seed}
 ### full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide
 
 ## link guidance
+
 # launch cora_link full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide link_pred ${seed} ${thres}& # seg=False
 # launch citeseer_link full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide link_pred ${seed} ${thres}& # seg=False
 # launch pubmed_link full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide link_pred ${seed} ${thres}&  # seg=2000
@@ -208,6 +209,7 @@ launch ogbl-collab_link full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide link
 # launch flickr_link full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide link_pred ${seed} ${thres}&
 
 ## node guidance
+
 # launch cora_node full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide node_degree ${seed} ${thres}& # seg=False
 # launch citeseer_node full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide node_degree ${seed} ${thres}& # seg=False
 # launch pubmed_node full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide node_degree ${seed} ${thres}&
@@ -220,6 +222,7 @@ launch ogbl-collab_node full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide node
 # launch flickr_node full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide node_degree ${seed} ${thres}&
 
 ## edge guidance
+
 # launch cora_edge full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide edge_cn ${seed} ${thres}& # seg=False
 # launch cora_edge full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide edge_aa ${seed} ${thres}& # seg=False
 # launch cora_edge full_nr_github_gnn_gt_l4_dnnm-50_deg_lin_self_guide edge_katz ${seed} ${thres}& # seg=False
