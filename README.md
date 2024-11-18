@@ -36,7 +36,7 @@ bash run/graph_pred_mol.sh
 You could uncomment the corresponding linesin the scripts for different datasets and guidence settings.
 
 ```shell
-bash run/node_class_subgraph.sh
+bash run/node_class_subgraph.sh 
 ```
 
 
