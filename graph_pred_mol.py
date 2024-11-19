@@ -31,7 +31,7 @@ torch.set_num_threads(2)
 cls_criterion = torch.nn.BCEWithLogitsLoss()
 reg_criterion = torch.nn.MSELoss()
 
-
+### Early stopping
 class EarlyStopping:
     def __init__(self, patience=7, verbose=False, delta=0, mode="max"):
         self.patience = patience
@@ -59,7 +59,7 @@ class EarlyStopping:
                 
         return self.early_stop
 
-
+### Training Loop
 def train(model, device, loader, optimizer, task_type='classification'):
     model.train()
 
@@ -80,7 +80,7 @@ def train(model, device, loader, optimizer, task_type='classification'):
             loss.backward()
             optimizer.step()
 
-
+### Evaluation Loop
 @torch.no_grad()
 def eval(model, device, loader, evaluator=None, task_type='classification'):
     model.eval()
@@ -115,7 +115,7 @@ def eval(model, device, loader, evaluator=None, task_type='classification'):
     
     return results
 
-
+### Main function for graph prediction
 def run_graph_pred(model, train_loader, valid_loader, test_loader, device='cuda:0', epochs=1000,
                    lr=1e-3, step_size=50, gamma=0.5, patience=500, task_type='classification', 
                    metric='rocauc', weight_decay=0., eval_start=0, selection='best', **kwargs):
@@ -197,6 +197,17 @@ def run_graph_pred(model, train_loader, valid_loader, test_loader, device='cuda:
 
 def main_fold(config, train_dataset, valid_dataset, test_dataset, device='cuda:0', seed=10,
               augment=False, train_guidance=False, subset_ratio=None, neg_guide=False):
+    
+    """
+    Main function to perform training, validation, and testing of a graph prediction model with optional data augmentation.
+    Args:
+        augment (bool, optional): Flag to indicate whether to perform data augmentation. Default is False.
+        train_guidance (bool, optional): Flag to indicate whether to train a guidance model. Default is False.
+        subset_ratio (float, optional): Ratio of the subset of the training data to use. Default is None.
+        neg_guide (bool, optional): Flag to indicate whether to use negative guidance. Default is False.
+    Returns:
+        dict: Results on the test dataset.
+    """
     data_params, model_params, train_params = config.data, config.model, config.train
     data_name = data_params.data_name
 
@@ -405,7 +416,7 @@ def main_fold(config, train_dataset, valid_dataset, test_dataset, device='cuda:0
     results = run_graph_pred(model, train_loader, valid_loader, test_loader, device, **train_params)
     return results
 
-
+### Main Entry function
 def main(config, seed=10, augment=False, train_guidance=False, neg_guide=False):
     set_seed(seed)
 
@@ -508,6 +519,8 @@ if __name__ == "__main__":
     edge_feat_flag = config.model.edge_feat
     if edge_feat_flag:
         group_name = 'edge_' + group_name
+        
+    ### wandb init
 
     datetime_now = time.strftime('%b%d-%H:%M:%S', time.gmtime())
     exp_name = f'{group_name}-r.{args.seed}-{datetime_now}'
