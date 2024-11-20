@@ -3,7 +3,10 @@ import copy
 import torch
 from torch_geometric.utils import subgraph
 
-
+'''
+This is directly borrowed from github https://github.com/nerdslab/halfhop/blob/main/halfhop.py.
+Official Implementation of Half-Hop: A graph upsampling approach for slowing down message passing (ICML 2023)
+'''
 
 class HalfHop:
     r"""Graph upsampling augmentation. Adds artifical slow nodes between neighbors to 
