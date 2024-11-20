@@ -45,6 +45,7 @@ METRIC_DICT = {
     'ogbl-citation2': 'mrr',
 }
 
+### Training Loop
 def train(model,
           predictor,
           data,
@@ -106,7 +107,7 @@ def train(model,
     total_loss = np.average([_.item() for _ in total_loss])
     return total_loss
 
-
+### Evaluation Loop
 @torch.no_grad()
 def test(data_name, model, predictor, data, x, batch_size=1024, use_val_edges=False):
     model.eval()
@@ -160,7 +161,7 @@ def test(data_name, model, predictor, data, x, batch_size=1024, use_val_edges=Fa
 
     return dict_of_dicts_to_dict(results)
 
- 
+### Main Entry Function 
 def run(config, seed=10, augment=False, use_val_edges=False, remove_dup=True, train_guidance=False):
     set_seed(seed)
 
