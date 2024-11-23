@@ -19,13 +19,13 @@ NEG_FLAG=${NEG_FLAG:-0}
 # --------------------
 
 launch () {
-    full_settings=($@)
+    full_settings=($@) # get cfg_name ckpt_name seed fold subset_ratio settings
     cfg_name=${full_settings[0]}
     ckpt_name=${full_settings[1]}
     seed=${full_settings[2]}
     fold=${full_settings[3]}
     subset_ratio=${full_settings[4]}
-    settings=${full_settings[@]:5}
+    settings=${full_settings[@]:5} # extra settings
 
     extra_config="augment.subset_ratio=${subset_ratio} "
     extra_args="--fold ${fold} "
