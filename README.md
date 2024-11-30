@@ -1,6 +1,6 @@
 # UniAug
 
-This is the official implementation for [Cross-Domain Graph Data Scaling: A Showcase with Diffusion Models](https://arxiv.org/pdf/2406.01899), which is a diffusion-model graph data argumentation, with consistent performance gain on node classification, link prediction, and graph classification tasks. [[Summary]](https://haitaomao.github.io/categories/ResearchSummary/#section132)
+This is the official implementation for [Cross-Domain Graph Data Scaling: A Showcase with Diffusion Models](https://arxiv.org/pdf/2406.01899), which is a diffusion-based graph data argumentation, with consistent performance gain on node classification, link prediction, and graph classification tasks. [[Summary]](https://haitaomao.github.io/categories/ResearchSummary/#section132)
 
 
 ## Abstract
